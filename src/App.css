@@ -1,8 +1,6 @@
 .App {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
-  max-width: 100%;
 }
 
 .login-page {
@@ -80,6 +78,23 @@ button:hover {
   height: 50px;
 }
 
+.wrapper {
+  display: inline-grid;
+}
+
+.card-wrapper {
+  margin: 6rem;
+}
+
+.card-body {
+  background: #353535;
+  width: 30em;
+  color: #fff;
+
+  padding: 2rem;
+  border-radius: 1rem;
+}
+
 .footer {
   background: #353535;
   color: #fff;
@@ -91,4 +106,25 @@ button:hover {
 
 .footer h3 {
   margin: 0;
+}
+
+.form-wrapper {
+  margin: 4rem auto;
+  width: 60%;
+  color: #fff;
+  padding: 3rem;
+  text-align: center;
+  background: #353535;
+}
+
+.form-grp {
+  display: inline;
+  margin: 0 2rem;
+}
+
+.exercise-btn {
+  width: 170px;
+  background: #fff;
+  color: #000;
+  margin-top: 3rem;
 }
