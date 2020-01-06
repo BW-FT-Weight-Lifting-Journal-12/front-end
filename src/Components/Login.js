@@ -1,10 +1,14 @@
-import React from "react";
+import React, {useState} from "react";
 import Hero from "../images/gym.jpg";
 import LoginLogo from "../images/WJ-Hero.png";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import "../App.css";
 
 const Login = props => {
+  const [username, setUsername] = useState('')
+  const [password, setPassword] = useState('')
+  const [isFetching, setIsFetching] = useState(false)
+
   return (
     <div className="login-page">
       <img className="hero-img" src={Hero} alt="gym" />
