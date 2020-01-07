@@ -7,7 +7,6 @@ import Exercises from "./Components/Exercises";
 import MyExercises from "./Components/MyExercises";
 import SignUp from "./Components/SignUp";
 import Footer from "./Components/Footer";
-
 import Journal from "./Components/Journal";
 
 
@@ -17,7 +16,7 @@ function App() {
   return (
     <div className="App">
     <Router>
-      <Route path="/" exact>
+      <Route exact path="/" >
         {
           // <Login />  
         }
@@ -34,8 +33,10 @@ function App() {
       <Switch>
         <Private path='/protected'/>
         <Route path='/login' component={Login}/>
+        <Route exact path='/signUp' component={SignUp}/>
         <Route component={Login}/>
       </Switch>
+      
       <Footer />
     </Router>
     </div>

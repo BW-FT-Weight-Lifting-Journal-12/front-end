@@ -49,7 +49,7 @@ const Journal = () => {
                 type="text"
                 name="targetedArea"
                 placeholder="Targeted Area"
-                value={exercise.targetdArea}
+                value={exercise.targetedArea}
                 onChange = {handleChanges}
             />
             <input
