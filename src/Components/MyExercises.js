@@ -1,6 +1,7 @@
 import React from "react";
 import Navigation from "./Navigation";
 import { Card, CardTitle, CardSubtitle, CardBody, CardDeck, Button } from "reactstrap";
+import { StyledMyExercises } from '../styles/StyledMyExercises';
 
 const MyExercises = () => {
 
@@ -17,6 +18,7 @@ const MyExercises = () => {
       <h1>My Exercises</h1>
       {workouts.map(exercise => {
         return (
+          <StyledMyExercises>
           <CardDeck className="wrapper">
           <Card className="card-wrapper" key={workouts.id}>
           <CardBody className="card-body">
@@ -29,6 +31,7 @@ const MyExercises = () => {
           </CardBody>
           </Card>
           </CardDeck>
+          </StyledMyExercises>
         );
       })}
     </div>
