@@ -1,14 +1,14 @@
 import React from "react";
 import Navigation from "./Navigation";
-import { Card, CardTitle, CardSubtitle, CardBody, CardDeck } from "reactstrap";
+import { Card, CardTitle, CardSubtitle, CardBody, CardDeck, Button } from "reactstrap";
 
 const MyExercises = () => {
 
   const workouts = [
-    { id: 1, name: "Benchpress", sets: "", reps: "", weight: "" },
-    { id: 2, name: "Bicep curls", sets: "", reps: "", weight: "" },
-    { id: 3, name: "Leg Press", sets: "", reps: "", weight: "" },
-    { id: 4, name: "Lat Pulldowns", sets: "", reps: "", weight: "" }
+    { id: 1, name: "Benchpress", sets: "2", reps: "10", weight: "150" },
+    { id: 2, name: "Bicep curls", sets: "3", reps: "10", weight: "45" },
+    { id: 3, name: "Leg Press", sets: "2", reps: "10", weight: "250" },
+    { id: 4, name: "Lat Pulldowns", sets: "3", reps: "10", weight: "70" }
   ];
 
   return (
@@ -23,7 +23,9 @@ const MyExercises = () => {
             <CardTitle>Name: {exercise.name}</CardTitle>
             <CardSubtitle>Sets: {exercise.sets}</CardSubtitle>
             <CardSubtitle>Reps: {exercise.reps}</CardSubtitle>
-            <CardSubtitle>Weight: {exercise.weight}</CardSubtitle>
+            <CardSubtitle>Weight: {exercise.weight}</CardSubtitle><br/>
+            <Button className="exercise-btn">Edit</Button><br/>
+            <Button className="exercise-btn">Delete</Button>
           </CardBody>
           </Card>
           </CardDeck>

@@ -1,6 +1,7 @@
 .App {
   margin: 0;
   padding: 0;
+  text-align: center;
 }
 
 .login-page {
@@ -83,16 +84,14 @@ button:hover {
 }
 
 .card-wrapper {
-  margin: 6rem;
+  margin: 3rem 2rem;
 }
 
 .card-body {
   background: #353535;
   width: 30em;
   color: #fff;
-
   padding: 2rem;
-  border-radius: 1rem;
 }
 
 .footer {
@@ -110,11 +109,12 @@ button:hover {
 
 .form-wrapper {
   margin: 4rem auto;
-  width: 60%;
+  width: 65%;
   color: #fff;
-  padding: 3rem;
+  padding: 6rem 3rem;
   text-align: center;
   background: #353535;
+  margin-bottom: 19.1rem;
 }
 
 .form-grp {
@@ -126,5 +126,15 @@ button:hover {
   width: 170px;
   background: #fff;
   color: #000;
-  margin-top: 3rem;
+  margin-top: 1.5rem;
+}
+
+.exercise-input {
+  border-radius: 5px;
+  padding-left: 10px;
+  margin-bottom: 2rem;
+}
+
+#exercise {
+  width: 180px;
 }
