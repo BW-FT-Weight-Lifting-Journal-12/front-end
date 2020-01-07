@@ -3,11 +3,54 @@ import Hero from "../images/gym.jpg";
 import LoginLogo from "../images/WJ-Hero.png";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import "../App.css";
+import { axiosWithAuth } from './utils/axiosWithAuth'
 
 const Login = props => {
-  const [username, setUsername] = useState('')
-  const [password, setPassword] = useState('')
-  const [isFetching, setIsFetching] = useState(false)
+  const [email, setEmail] = useState({
+    email: ''
+  })
+
+  const [password, setPassword] = useState({
+    password: ''
+  })
+
+  
+  const emailHandleChange = event => {
+    // console.log(event.target.value)
+    // @ts-ignore
+    setEmail({
+      email: event.target.value
+    })
+  }
+
+  const passwordHandleChange = event => {
+    // console.log(event.target.value)
+    // @ts-ignore
+    setPassword({
+      password: event.target.value
+    })
+  }
+  
+  const login = e => {
+    e.preventDefault();
+    setEmail( prev => ({
+      ...prev,
+      isFetching: true
+    }))
+    axiosWithAuth()
+      .post('/login', email)
+      .then(res => {
+        console.log(res)
+        localStorage.setItem('token', res.data.payload)
+        props.history.push('/protected')
+      })
+      .catch(err => console.log(err))
+  }
+
+  
+  
+//  console.log(email.credentials.email)?
+
 
   return (
     <div className="login-page">
@@ -41,7 +84,7 @@ const Login = props => {
           }}
         >
           {({ isSubmitting }) => (
-            <Form className="form-field">
+            <Form className="form-field" onSubmit={login}>
               <label htmlFor="email">Email: </label>
               <br />
               <Field
@@ -49,6 +92,8 @@ const Login = props => {
                 id="email"
                 type="email"
                 name="email"
+                value={email.email}
+                onChange={emailHandleChange}
               />
               <br />
               <ErrorMessage name="email" component="div" />
@@ -59,11 +104,15 @@ const Login = props => {
                 id="password"
                 type="password"
                 name="password"
+                value={password.password}
+                onChange={passwordHandleChange}
               />
               <br />
               <br />
               <ErrorMessage name="password" component="div" />
-              <button type="submit" disabled={isSubmitting}>
+              <button 
+              
+              type="submit" disabled={isSubmitting}>
                 Sign In
               </button>
             </Form>
