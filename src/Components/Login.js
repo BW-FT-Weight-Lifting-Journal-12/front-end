@@ -17,7 +17,7 @@ const Login = props => {
   });
 
   const emailHandleChange = event => {
-    // console.log(event.target.value)
+    
     // @ts-ignore
     setEmail({
       email: event.target.value
@@ -25,12 +25,16 @@ const Login = props => {
   };
 
   const passwordHandleChange = event => {
-    // console.log(event.target.value)
+    
     // @ts-ignore
     setPassword({
       password: event.target.value
-    });
-  };
+
+    })
+  }
+  
+  const mergedObjects = {...email, ...password}
+  
 
   const login = e => {
     e.preventDefault();
@@ -39,14 +43,24 @@ const Login = props => {
       isFetching: true
     }));
     axiosWithAuth()
-      .post("/login", email)
+
+      .post( '/api/auth/login', mergedObjects)
+
       .then(res => {
         console.log(res);
         localStorage.setItem("token", res.data.payload);
         props.history.push("/protected");
       })
-      .catch(err => console.log(err));
-  };
+
+      .catch(err => console.log(err))
+  }
+
+  
+
+  
+  
+//  console.log(email.credentials.email)?
+
 
   //  console.log(email.credentials.email)?
 
