@@ -1,11 +1,15 @@
+
 import React, { useState } from "react";
 import Hero from "../images/gym.jpg";
 import LoginLogo from "../images/WJ-Hero.png";
 import { Link } from "react-router-dom";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import "../App.css";
-import { axiosWithAuth } from "./utils/axiosWithAuth";
+
+import { axiosWithAuth } from './utils/axiosWithAuth';
 import { StyledLogin } from "../styles/StyledLogin";
+
+
 
 const Login = props => {
   const [email, setEmail] = useState({
