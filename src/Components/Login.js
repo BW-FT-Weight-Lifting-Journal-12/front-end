@@ -3,35 +3,53 @@ import Hero from "../images/gym.jpg";
 import LoginLogo from "../images/WJ-Hero.png";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import "../App.css";
+import { axiosWithAuth } from './utils/axiosWithAuth'
 
 const Login = props => {
-  const [set, setter] = useState({
-    credentials: {
-      username: '',
-      password: ''
-    },
-    isFetching: false
-  }
-  )
+  const [email, setEmail] = useState({
+    email: ''
+  })
+
+  const [password, setPassword] = useState({
+    password: ''
+  })
+
   
-  const handleChange = e => {
+  const emailHandleChange = event => {
+    // console.log(event.target.value)
     // @ts-ignore
-    setter(prev =>({
-        prev: {
-          ...prev,
-         [e.target.name]: e.target.value
-        }
-    }))
+    setEmail({
+      email: event.target.value
+    })
+  }
 
-    
-
-
+  const passwordHandleChange = event => {
+    // console.log(event.target.value)
+    // @ts-ignore
+    setPassword({
+      password: event.target.value
+    })
   }
   
- 
+  const login = e => {
+    e.preventDefault();
+    setEmail( prev => ({
+      ...prev,
+      isFetching: true
+    }))
+    axiosWithAuth()
+      .post('/login', email)
+      .then(res => {
+        console.log(res)
+        localStorage.setItem('token', res.data.payload)
+        props.history.push('/protected')
+      })
+      .catch(err => console.log(err))
+  }
+
   
-  console.log(set)
- 
+  
+//  console.log(email.credentials.email)?
 
 
   return (
@@ -66,7 +84,7 @@ const Login = props => {
           }}
         >
           {({ isSubmitting }) => (
-            <Form className="form-field">
+            <Form className="form-field" onSubmit={login}>
               <label htmlFor="email">Email: </label>
               <br />
               <Field
@@ -74,7 +92,8 @@ const Login = props => {
                 id="email"
                 type="email"
                 name="email"
-                onChange={handleChange}
+                value={email.email}
+                onChange={emailHandleChange}
               />
               <br />
               <ErrorMessage name="email" component="div" />
@@ -85,7 +104,8 @@ const Login = props => {
                 id="password"
                 type="password"
                 name="password"
-                onChange={ handleChange }
+                value={password.password}
+                onChange={passwordHandleChange}
               />
               <br />
               <br />
