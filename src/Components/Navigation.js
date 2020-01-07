@@ -9,15 +9,15 @@ const Navigation = () => {
       <div className="nav">
         <img className="logo" src={Logo} alt="logo" />
         <div className="links">
-        <Link to="/exercises" className="link-text">
-          <p>Exercises</p>
-        </Link>
-        <Link to="/myexercises" className="link-text">
-          <p>My List</p>
-        </Link>
-        <Link to="/" className="link-text">
-          <p>Sign Out</p>
-        </Link>
+          <Link to="/journal" className="link-text">
+            <p>Journal</p>
+          </Link>
+          <Link to="/myexercises" className="link-text">
+            <p>My Exercises</p>
+          </Link>
+          <Link to="/" className="link-text">
+            <p>Sign Out</p>
+          </Link>
         </div>
       </div>
     </StyledNavigation>

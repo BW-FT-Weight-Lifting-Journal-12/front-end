@@ -15,12 +15,12 @@ import "./App.css";
 function App() {
   return (
     <div className="App">
-      <Route path="jounal">
-        <Journal />
-      </Route>
       <Router>
         <Route path="/" exact>
           <Login />
+        </Route>
+        <Route path="/journal">
+          <Journal />
         </Route>
         <Route path="/welcome">
           <Welcome />
