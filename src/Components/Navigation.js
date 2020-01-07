@@ -8,6 +8,7 @@ const Navigation = () => {
     <StyledNavigation>
       <div className="nav">
         <img className="logo" src={Logo} alt="logo" />
+        <div className="links">
         <Link to="/exercises" className="link-text">
           <p>Exercises</p>
         </Link>
@@ -17,6 +18,7 @@ const Navigation = () => {
         <Link to="/" className="link-text">
           <p>Sign Out</p>
         </Link>
+        </div>
       </div>
     </StyledNavigation>
   );

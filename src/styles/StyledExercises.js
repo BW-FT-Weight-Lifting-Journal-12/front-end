@@ -1,6 +1,11 @@
 import styled from "styled-components";
 
 export const StyledExercises = styled.div`
+
+  h1 {
+    text-align: center;
+  }
+  
   .form-wrapper {
     margin: 4rem auto;
     width: 65%;
@@ -31,5 +36,26 @@ export const StyledExercises = styled.div`
     #exercise {
       width: 180px;
     }
+  }
+  @media only screen and (max-width: 550px) {
+    .form-wrapper {
+      width: 100%;
+      margin: 2rem auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      
+
+      .form-grp {
+        margin: 0;
+        padding-right: 6rem;
+      }
+      .exercise-btn {
+        width: 220px;
+        margin-right: 6rem;
+      }
+    }
+
+    
   }
 `;

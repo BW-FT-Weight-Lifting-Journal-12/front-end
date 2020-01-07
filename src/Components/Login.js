@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import Hero from "../images/gym.jpg";
 import LoginLogo from "../images/WJ-Hero.png";
 import { Formik, Form, Field, ErrorMessage } from "formik";
@@ -11,8 +12,8 @@ const Login = props => {
         <img className="hero-img" src={Hero} alt="gym" />
         <div className="login-rt">
           <img src={LoginLogo} className="login-img" alt="logo" />
+          <Link to="/signup"><button>Sign Up Here</button></Link>
           <h1>Login Page</h1>
-
           <Formik
             initialValues={{ email: "", password: "" }}
             validate={values => {

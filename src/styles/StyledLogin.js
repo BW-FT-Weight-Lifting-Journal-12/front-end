@@ -1,6 +1,10 @@
 import styled from "styled-components";
 
 export const StyledLogin = styled.div`
+
+h1 {
+   text-align: center;
+}
   .login-page {
     display: flex;
     flex-direction: row;
@@ -8,13 +12,14 @@ export const StyledLogin = styled.div`
 
     .login-page h1 {
       margin: 0 auto;
-    }
 
+    }
+    
     .login-img {
       width: 300px;
       height: 150px;
     }
-
+    
     .login-rt {
       display: flex;
       flex-direction: column;
@@ -44,11 +49,26 @@ export const StyledLogin = styled.div`
       background: yellow;
       color: #353535;
     }
-
+    
     .hero-img {
       width: 70%;
       height: 85vh;
-      /* height: 500px; */
     }
   }
-`;
+  @media only screen and (max-width: 550px) {
+    .login-page {
+      display: flex;
+      flex-direction: column;
+
+      .hero-img {
+        width: 100%;
+        height: 300px;
+      }
+
+      .login-rt {
+        margin: 2rem auto;
+      }
+    }
+
+  }
+  `;

@@ -8,9 +8,10 @@ const Exercises = () => {
   return (
     <div>
       <Navigation />
-      <h1>Add Exercises to My Workout</h1>
       <StyledExercises>
+      <h1>Add Exercises to My Workout</h1>
         <Form className="form-wrapper">
+          
           <FormGroup className="form-grp">
             <Label for="exampleSelect">Exercise: </Label>
             <Input
@@ -53,7 +54,7 @@ const Exercises = () => {
               id="reps"
             />
           </FormGroup>
-
+          
           <Button className="exercise-btn">Add Exercise</Button>
         </Form>
       </StyledExercises>
