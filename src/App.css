@@ -1,11 +1,10 @@
 .App {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
-  max-width: 100%;
+  /* text-align: center; */
 }
 
-.login-page {
+/* .login-page {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -35,9 +34,9 @@
   border-radius: 5px;
   border: 1px solid #353535;
   height: 20px;
-}
+} */
 
-button {
+/* button {
   border-radius: 5px;
   border: 1px solid #353535;
   background: #353535;
@@ -54,10 +53,9 @@ button:hover {
 .hero-img {
   width: 70%;
   height: 85vh;
-  /* height: 500px; */
-}
+} */
 
-.nav {
+/* .nav {
   width: 100%;
   height: 75px;
   background: #353535;
@@ -78,17 +76,65 @@ button:hover {
 .logo {
   width: 300px;
   height: 50px;
+} */
+
+/* .wrapper {
+  display: inline-grid;
 }
 
-.footer {
+.card-wrapper {
+  margin: 3rem 2rem;
+}
+
+.card-body {
+  background: #353535;
+  width: 30em;
+  color: #fff;
+  padding: 2rem;
+} */
+
+
+/* .form-wrapper {
+  margin: 4rem auto;
+  width: 65%;
+  color: #fff;
+  padding: 6rem 3rem;
+  text-align: center;
+  background: #353535;
+  margin-bottom: 19.1rem;
+}
+
+.form-grp {
+  display: inline;
+  margin: 0 2rem;
+}
+
+.exercise-btn {
+  width: 170px;
+  background: #fff;
+  color: #000;
+  margin-top: 1.5rem;
+}
+
+.exercise-input {
+  border-radius: 5px;
+  padding-left: 10px;
+  margin-bottom: 2rem;
+}
+
+#exercise {
+  width: 180px;
+} */
+
+/* .footer {
   background: #353535;
   color: #fff;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 15vh;
-}
+} */
 
-.footer h3 {
+/* .footer h3 {
   margin: 0;
-}
+} */
