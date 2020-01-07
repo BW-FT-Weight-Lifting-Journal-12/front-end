@@ -3,7 +3,7 @@ const newWorkoutState = () => ({
     exerciseList: [],
 });
 
-export const exerciseReducer = (state = newWorkoutState, action) => {
+export const reducer = (state = newWorkoutState, action) => {
     switch(action.type) {
         case POST_WORKOUT_START:
             return {
