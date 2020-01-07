@@ -1,8 +1,10 @@
 import { POST_WORKOUT_START, POST_WORKOUT_SUCCESS, POST_WORKOUT_ERROR,FETCH_WORKOUT_START,FETCH_WORKOUT_SUCCESS, FETCH_WORKOUT_FAILURE} from "../actions/actions";
 
 const newWorkoutState = () => ({
-    isFetching: false,
     exerciseList: [],
+    isFetching: false,
+    isPosting: false,
+    error: "",
 });
 
 export const reducer = (state = newWorkoutState, action) => {
@@ -10,19 +12,21 @@ export const reducer = (state = newWorkoutState, action) => {
         case POST_WORKOUT_START:
             return {
                 ...state,
-                isFetching: true,
+                isPosting: true,
             }
 
         case POST_WORKOUT_SUCCESS:
             return {
                 ...state,
-                isFetching: false,
+                exerciseList: action.payload,
+                isPosting: false,
             }
 
         case POST_WORKOUT_ERROR:
             return {
                 ...state,
-                isFetching: false,
+                isPosting: false,
+                error: action.payload,
             }
 
         case FETCH_WORKOUT_START:

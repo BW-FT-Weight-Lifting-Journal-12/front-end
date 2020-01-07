@@ -6,12 +6,14 @@ import Welcome from './Components/Welcome';
 import Exercises from './Components/Exercises';
 import MyExercises from './Components/MyExercises';
 import Footer from './Components/Footer';
+import Journal from "./Components/Journal";
 
 import './App.css';
 
 function App() {
   return (
     <div className="App">
+    <Journal path = "/journal"/>
     <Router>
     <Route path="/" exact>
      <Login />
