@@ -1,3 +1,5 @@
+import { POST_WORKOUT_START, POST_WORKOUT_SUCCESS, POST_WORKOUT_ERROR,FETCH_WORKOUT_START,FETCH_WORKOUT_SUCCESS, FETCH_WORKOUT_FAILURE} from "../actions/actions";
+
 const newWorkoutState = () => ({
     isFetching: false,
     exerciseList: [],
