@@ -5,9 +5,34 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import "../App.css";
 
 const Login = props => {
-  const [username, setUsername] = useState('')
-  const [password, setPassword] = useState('')
-  const [isFetching, setIsFetching] = useState(false)
+  const [set, setter] = useState({
+    credentials: {
+      username: '',
+      password: ''
+    },
+    isFetching: false
+  }
+  )
+  
+  const handleChange = e => {
+    // @ts-ignore
+    setter(prev =>({
+        prev: {
+          ...prev,
+         [e.target.name]: e.target.value
+        }
+    }))
+
+    
+
+
+  }
+  
+ 
+  
+  console.log(set)
+ 
+
 
   return (
     <div className="login-page">
@@ -49,6 +74,7 @@ const Login = props => {
                 id="email"
                 type="email"
                 name="email"
+                onChange={handleChange}
               />
               <br />
               <ErrorMessage name="email" component="div" />
@@ -59,11 +85,14 @@ const Login = props => {
                 id="password"
                 type="password"
                 name="password"
+                onChange={ handleChange }
               />
               <br />
               <br />
               <ErrorMessage name="password" component="div" />
-              <button type="submit" disabled={isSubmitting}>
+              <button 
+              
+              type="submit" disabled={isSubmitting}>
                 Sign In
               </button>
             </Form>
