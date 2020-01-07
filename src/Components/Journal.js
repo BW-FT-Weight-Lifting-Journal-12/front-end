@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Navigation from "./Navigation";
-import { connect } from 'formik';
+import { connect } from "react-redux";
+import { postWorkout } from "../actions/actions";
 
 const Journal = () => {
     const [exercise, setExercise] = useState({
@@ -21,9 +22,19 @@ const Journal = () => {
 
     const handleSubmit = event => {
         event.preventDefault();
+        postWorkout(exercise);
+        setExercise({
+        date: "",
+        name: "",
+        targetedArea: "",
+        reps: "",
+        sets: "",
+        weight: ""
+        })
     }
 
     return (
+        <div>
         <Navigation />
         <h1>Log Completed Exercise</h1>
         <form onSubmit = {handleSubmit}>
@@ -64,6 +75,7 @@ const Journal = () => {
             />
             <button>Add Exercise</button>
         </form>
+        </div>
     );
 
 }
@@ -74,4 +86,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps, {})(Journal);
+export default connect(mapStateToProps, {postWorkout})(Journal);

@@ -1,9 +1,13 @@
+
+
+
 import React, {useState} from "react";
 import Hero from "../images/gym.jpg";
 import LoginLogo from "../images/WJ-Hero.png";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import "../App.css";
 import { axiosWithAuth } from './utils/axiosWithAuth'
+
 
 const Login = props => {
   const [email, setEmail] = useState({
@@ -57,6 +61,7 @@ const Login = props => {
 
 
   return (
+
     <div className="login-page">
       <img className="hero-img" src={Hero} alt="gym" />
       <div className="login-rt">
@@ -122,8 +127,9 @@ const Login = props => {
             </Form>
           )}
         </Formik>
+
       </div>
-    </div>
+    </StyledLogin>
   );
 };
 

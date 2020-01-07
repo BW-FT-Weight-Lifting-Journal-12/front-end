@@ -1,13 +1,17 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Private from './Components/PrivateRoute';
-import Login  from './Components/Login';
-import Welcome from './Components/Welcome';
-import Exercises from './Components/Exercises';
-import MyExercises from './Components/MyExercises';
-import Footer from './Components/Footer';
+import Login from "./Components/Login";
+import Welcome from "./Components/Welcome";
+import Exercises from "./Components/Exercises";
+import MyExercises from "./Components/MyExercises";
+import SignUp from "./Components/SignUp";
+import Footer from "./Components/Footer";
 
-import './App.css';
+import Journal from "./Components/Journal";
+
+
+import "./App.css";
 
 function App() {
   return (
