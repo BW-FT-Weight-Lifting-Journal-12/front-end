@@ -13,7 +13,7 @@ import { StyledLogin } from "../styles/StyledLogin";
 
 const Login = props => {
   const [email, setEmail] = useState({
-    email: ""
+    username: ""
   });
 
   const [password, setPassword] = useState({
@@ -24,7 +24,7 @@ const Login = props => {
     
     // @ts-ignore
     setEmail({
-      email: event.target.value
+      username: event.target.value
     });
   };
 
@@ -40,20 +40,17 @@ const Login = props => {
   const mergedObjects = {...email, ...password}
   
 
+
   const login = e => {
     e.preventDefault();
-    setEmail(prev => ({
-      ...prev,
-      isFetching: true
-    }));
-    axiosWithAuth()
 
+    axiosWithAuth()
       .post( '/api/auth/login', mergedObjects)
 
       .then(res => {
-        console.log(res);
+        
         localStorage.setItem("token", res.data.payload);
-        props.history.push("/protected");
+        props.history.push( '/protected' );
       })
 
       .catch(err => console.log(err))
@@ -63,10 +60,7 @@ const Login = props => {
 
   
   
-//  console.log(email.credentials.email)?
 
-
-  //  console.log(email.credentials.email)?
 
   return (
     <StyledLogin>
@@ -109,7 +103,7 @@ const Login = props => {
                   id="email"
                   type="email"
                   name="email"
-                  value={email.email}
+                  value={email.username}
                   onChange={emailHandleChange}
                 />
                 <br />

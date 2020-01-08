@@ -1,20 +1,19 @@
 import React, { useState } from "react";
-import Navigation from "./Navigation";
-import { Link } from "react-router-dom";
+// import Navigation from "./Navigation";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { axiosWithAuth } from "./utils/axiosWithAuth";
 
 const SignUp = props => {
-  const [email, setEmail] = useState({
+  const [emailAddress, setEmail] = useState({
     email: ""
   });
 
-  const [password, setPassword] = useState({
+  const [userPassword, setPassword] = useState({
     password: ""
   });
 
   const emailHandleChange = event => {
-    // console.log(event.target.value)
+    
     // @ts-ignore
     setEmail({
       email: event.target.value
@@ -22,12 +21,17 @@ const SignUp = props => {
   };
 
   const passwordHandleChange = event => {
-    // console.log(event.target.value)
+   
     // @ts-ignore
     setPassword({
       password: event.target.value
     });
   };
+
+  const credentials = {
+    username: emailAddress.email,
+    password: userPassword.password
+  }
 
   const signUp = e => {
     e.preventDefault();
@@ -36,18 +40,16 @@ const SignUp = props => {
       isFetching: true
     }));
     axiosWithAuth()
-      .post("/login", email)
+      .post("/api/auth/register", credentials)
       .then(res => {
-        console.log(res);
-        localStorage.setItem("token", res.data.payload);
-        props.history.push("/protected");
+        
       })
       .catch(err => console.log(err));
   };
 
   return (
     <div>
-      <Navigation />
+      
       <h1>Sign Up</h1>
 
       <Formik
@@ -83,7 +85,7 @@ const SignUp = props => {
               id="email"
               type="email"
               name="email"
-              value={email.email}
+              value={emailAddress.email}
               onChange={emailHandleChange}
             />
             <br />
@@ -92,11 +94,11 @@ const SignUp = props => {
             <br />
             <Field
               className="field-input"
-              id="email"
+              id="confirmEmail"
               type="email"
               name="email"
-              value={email.email}
-              onChange={emailHandleChange}
+              
+              
             />
             <br />
             <ErrorMessage name="email" component="div" />
@@ -107,7 +109,7 @@ const SignUp = props => {
               id="password"
               type="password"
               name="password"
-              value={password.password}
+              value={userPassword.password}
               onChange={passwordHandleChange}
             />
             <br />
@@ -116,11 +118,11 @@ const SignUp = props => {
             <br />
             <Field
               className="field-input"
-              id="password"
+              id="confirmPassword"
               type="password"
               name="password"
-              value={password.password}
-              onChange={passwordHandleChange}
+             
+              
             />
             <br />
             <ErrorMessage name="password" component="div" />
