@@ -30,17 +30,22 @@ const Journal = () => {
 
     }
 
-    // axiosWithAuth.post( )
-    //     .then( response =>
-    //     {
-          
-    //     } )
-    //     .catch( error =>
-    //     {
-            
-    //     } );
+    
 
+    axiosWithAuth().
+    post('/api/workouts', exercises)
+        .then( res =>
+        {
+          console.log(res)
+        } )
+        .catch( err =>
+        {
+            console.log(err)
+        } );
 
+    console.log('/')
+
+    axiosWithAuth().get('https://weight-lifting-journal-12.herokuapp.com/').then(res => console.log(res))
         
     const handleChanges = event => {
         // @ts-ignore
