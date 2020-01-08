@@ -4,10 +4,13 @@ import { Card, CardTitle, CardSubtitle, CardBody, CardDeck, Button } from "react
 import { StyledMyExercises } from '../styles/StyledMyExercises';
 
 const MyExercises = () => {
+
+  
+
 const titleStyle = {
   textAlign: 'center'
 };
-  const workouts = [
+    const workouts = [
     { id: 1, name: "Benchpress", sets: "2", reps: "10", weight: "150" },
     { id: 2, name: "Bicep curls", sets: "3", reps: "10", weight: "45" },
     { id: 3, name: "Leg Press", sets: "2", reps: "10", weight: "250" },
@@ -20,7 +23,7 @@ const titleStyle = {
       <h1 style={titleStyle}>My Exercises</h1>
       {workouts.map(exercise => {
         return (
-          <StyledMyExercises>
+          <StyledMyExercises key={exercise.id}>
           <CardDeck className="wrapper">
             <Card className="card-wrapper" key={workouts.id}>
               <CardBody className="card-body">

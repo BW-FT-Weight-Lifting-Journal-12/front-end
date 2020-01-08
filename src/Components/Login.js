@@ -38,7 +38,7 @@ const Login = props => {
   }
   
   const mergedObjects = {...email, ...password}
-  console.log(mergedObjects)
+  
 
 
   const login = e => {
@@ -48,7 +48,7 @@ const Login = props => {
       .post( '/api/auth/login', mergedObjects)
 
       .then(res => {
-        console.log(res);
+        
         localStorage.setItem("token", res.data.payload);
         props.history.push( '/protected' );
       })

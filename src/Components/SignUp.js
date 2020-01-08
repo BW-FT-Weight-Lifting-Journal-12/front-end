@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Navigation from "./Navigation";
+// import Navigation from "./Navigation";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { axiosWithAuth } from "./utils/axiosWithAuth";
 
@@ -13,7 +13,7 @@ const SignUp = props => {
   });
 
   const emailHandleChange = event => {
-    // console.log(event.target.value)
+    
     // @ts-ignore
     setEmail({
       email: event.target.value
@@ -21,7 +21,7 @@ const SignUp = props => {
   };
 
   const passwordHandleChange = event => {
-    // console.log(event.target.value)
+   
     // @ts-ignore
     setPassword({
       password: event.target.value
@@ -42,14 +42,14 @@ const SignUp = props => {
     axiosWithAuth()
       .post("/api/auth/register", credentials)
       .then(res => {
-        console.log(res);
+        
       })
       .catch(err => console.log(err));
   };
 
   return (
     <div>
-      <Navigation />
+      
       <h1>Sign Up</h1>
 
       <Formik
