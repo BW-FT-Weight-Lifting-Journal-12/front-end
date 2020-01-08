@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Navigation from "./Navigation";
 import { connect } from "react-redux";
 import { postWorkout } from "../actions/actions";
+
 import {
   StyledJournalTitle,
   StyledJournalForm,
@@ -26,6 +27,60 @@ const Journal = () => {
       [event.target.name]: event.target.value
     });
   };
+
+import { axiosWithAuth} from './utils/axiosWithAuth'
+const Journal = () => {
+
+
+    const [exercise, setExercise] = useState({
+        
+        date: Date.now(),
+        name: "",
+        targetedArea: "",
+        reps: "",
+        sets: "",
+        weight: "",
+        id: Date.now(),
+        journal: ''
+        
+    })
+
+
+    const exercises = {
+        exercise: exercise.name,
+        weight: exercise.weight,
+        sets: exercise.sets,
+        date: exercise.date,
+        muscle: exercise.targetedArea,
+        journal: exercise.journal
+
+    }
+
+    
+
+    axiosWithAuth().
+    post('/api/workouts', exercises)
+        .then( res =>
+        {
+          console.log(res)
+        } )
+        .catch( err =>
+        {
+            console.log(err)
+        } );
+
+    console.log('/')
+
+    axiosWithAuth().get('https://weight-lifting-journal-12.herokuapp.com/').then(res => console.log(res))
+        
+    const handleChanges = event => {
+        // @ts-ignore
+        setExercise({
+            ...exercise,
+            [event.target.name]: event.target.value,
+        })
+    }
+
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -79,6 +134,7 @@ const Journal = () => {
           <button>Add Exercise</button>
         </form>
 
+
  {/* Added footer for styling */}
       </StyledJournalForm>
       <StyledJournalFooter>
@@ -87,6 +143,8 @@ const Journal = () => {
     </div>
   );
 };
+
+   
 
 // const mapStateToProps = state => {
 //     return {

@@ -9,8 +9,10 @@ const Navigation = () => {
       <div className="nav">
         <img className="logo" src={Logo} alt="logo" />
         <div className="links">
-        <Link to="/protected/" className="link-text">
-          <p>My Exercises</p>
+
+        <Link to="/protected" className="link-text">
+          <p>Exercises</p>
+
         </Link>
           <Link to="/protected/list" className="link-text">
           <p>Add Exercises</p>
