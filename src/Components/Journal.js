@@ -5,7 +5,7 @@ import { postWorkout } from "../actions/actions";
 
 const Journal = () => {
     const [exercise, setExercise] = useState({
-        
+
         date: Date.now(),
         name: "",
         targetedArea: "",
@@ -13,7 +13,7 @@ const Journal = () => {
         sets: "",
         weight: "",
         id: Date.now()
-        
+
     })
 
     const handleChanges = event => {
@@ -24,20 +24,14 @@ const Journal = () => {
         })
     }
 
-    
-
     const handleSubmit = e => {
         e.preventDefault();
-        setExercise({...exercise, [e.target.name]: ''})
+        setExercise({ ...exercise, [e.target.name]: '' })
     }
-    
-    
-    
 
     return (
         <div>
-         <Navigation />
-           
+            <Navigation />
             <h1>{exercise.name}</h1>
             <h1>Log Completed Exercise</h1>
             <form onSubmit={handleSubmit}>
@@ -53,39 +47,33 @@ const Journal = () => {
                     name="targetedArea"
                     placeholder="Targeted Area"
                     value={exercise.targetedArea}
-                    onChange = {handleChanges}
+                    onChange={handleChanges}
                 />
                 <input
                     type="text"
                     name="reps"
                     placeholder="Number of Reps"
                     value={exercise.reps}
-                    onChange = {handleChanges}
+                    onChange={handleChanges}
                 />
                 <input
                     type="number"
                     name="sets"
                     placeholder="Sets"
                     value={exercise.sets}
-                    onChange = {handleChanges}
+                    onChange={handleChanges}
                 />
                 <input
                     type="number"
                     name="weight"
                     placeholder="Weight"
                     value={exercise.weight}
-                    onChange = {handleChanges}
+                    onChange={handleChanges}
                 />
                 <button>Add Exercise</button>
-                   
-
-
-
             </form>
-            
         </div>
     );
-
 }
 
 // const mapStateToProps = state => {
@@ -95,5 +83,5 @@ const Journal = () => {
 // }
 
 export default Journal
-            
+
 // ;connect(mapStateToProps, { postWorkout })
