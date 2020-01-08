@@ -12,6 +12,8 @@ const SignUp = props => {
     password: ""
   });
 
+  
+
   const emailHandleChange = event => {
     
     // @ts-ignore
@@ -37,21 +39,45 @@ const SignUp = props => {
     e.preventDefault();
     setEmail(prev => ({
       ...prev,
-      isFetching: true
     }));
     axiosWithAuth()
       .post("/api/auth/register", credentials)
       .then(res => {
-        
+        setError(error)
       })
-      .catch(err => console.log(err));
+      .catch(err => {
+        
+        setError(err)
+      })
+   
   };
+
+
+
+
+ const signUpButton = ()=> {
+    
+  
+    if(emailAddress.email !== '' && userPassword.password !=='' ){
+
+      setTimeout(() => {
+         props.history.push('/login')
+      }, 1000);
+       
+      }
+    
+  
+ }
+
+  const [ error, setError ] = useState('')
+  
 
   return (
     <div>
+    
       
       <h1>Sign Up</h1>
-
+     
       <Formik
         initialValues={{ email: "", password: "" }}
         validate={values => {
@@ -90,18 +116,6 @@ const SignUp = props => {
             />
             <br />
             <ErrorMessage name="email" component="div" />
-            <label htmlFor="email">Confirm Email: </label>
-            <br />
-            <Field
-              className="field-input"
-              id="confirmEmail"
-              type="email"
-              name="email"
-              
-              
-            />
-            <br />
-            <ErrorMessage name="email" component="div" />
             <label htmlFor="password">Password: </label>
             <br />
             <Field
@@ -114,21 +128,9 @@ const SignUp = props => {
             />
             <br />
             <ErrorMessage name="password" component="div" />
-            <label htmlFor="password">Confirm Password: </label>
-            <br />
-            <Field
-              className="field-input"
-              id="confirmPassword"
-              type="password"
-              name="password"
-             
-              
-            />
-            <br />
-            <ErrorMessage name="password" component="div" />
-
-            <button type="submit" disabled={isSubmitting}>
-              Sign In
+           
+             <button type="submit" disabled={isSubmitting} onClick={signUpButton}>
+              Sign UP!
             </button>
           </Form>
         )}

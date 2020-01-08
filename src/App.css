@@ -4,6 +4,10 @@
   /* text-align: center; */
 }
 
+#journal{
+  height: 200px;
+}
+
 /* .login-page {
   display: flex;
   flex-direction: row;
