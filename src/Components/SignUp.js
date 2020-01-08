@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Navigation from "./Navigation";
-import { Link } from "react-router-dom";
+import { StyledSignUp, StyledSignUpTitle } from "../styles/StyledSignUp";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { axiosWithAuth } from "./utils/axiosWithAuth";
 
@@ -48,8 +48,9 @@ const SignUp = props => {
   return (
     <div>
       <Navigation />
+      <StyledSignUpTitle>
       <h1>Sign Up</h1>
-
+      </StyledSignUpTitle>
       <Formik
         initialValues={{ email: "", password: "" }}
         validate={values => {
@@ -74,6 +75,7 @@ const SignUp = props => {
         }}
       >
         {({ isSubmitting }) => (
+          <StyledSignUp>
           <Form className="form-field" onSubmit={signUp}>
             <label htmlFor="email">Email: </label>
             <br />
@@ -125,9 +127,10 @@ const SignUp = props => {
             <ErrorMessage name="password" component="div" />
 
             <button type="submit" disabled={isSubmitting}>
-              Sign In
+              Sign Up
             </button>
           </Form>
+          </StyledSignUp>
         )}
       </Formik>
     </div>
