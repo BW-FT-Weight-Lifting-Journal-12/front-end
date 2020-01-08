@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-// import Navigation from "./Navigation";
+import Navigation from "./Navigation";
+import { StyledSignUp, StyledSignUpTitle } from "../styles/StyledSignUp";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { axiosWithAuth } from "./utils/axiosWithAuth";
 
@@ -11,6 +12,8 @@ const SignUp = props => {
   const [userPassword, setPassword] = useState({
     password: ""
   });
+
+  
 
   const emailHandleChange = event => {
     
@@ -37,20 +40,46 @@ const SignUp = props => {
     e.preventDefault();
     setEmail(prev => ({
       ...prev,
-      isFetching: true
     }));
     axiosWithAuth()
       .post("/api/auth/register", credentials)
       .then(res => {
-        
+        setError(error)
       })
-      .catch(err => console.log(err));
+      .catch(err => {
+        
+        setError(err)
+      })
+   
   };
+
+
+
+
+ const signUpButton = ()=> {
+    
+  
+    if(emailAddress.email !== '' && userPassword.password !=='' ){
+
+      setTimeout(() => {
+         props.history.push('/login')
+      }, 1000);
+       
+      }
+    
+  
+ }
+
+  const [ error, setError ] = useState('')
+  
 
   return (
     <div>
-      
+
+      <Navigation />
+      <StyledSignUpTitle>
       <h1>Sign Up</h1>
+      </StyledSignUpTitle>
 
       <Formik
         initialValues={{ email: "", password: "" }}
@@ -71,12 +100,12 @@ const SignUp = props => {
         }}
         onSubmit={(values, { setSubmitting }) => {
           setTimeout(() => {
-            // alert(JSON.stringify(values, null, 2));
             setSubmitting(false);
           }, 400);
         }}
       >
         {({ isSubmitting }) => (
+          <StyledSignUp>
           <Form className="form-field" onSubmit={signUp}>
             <label htmlFor="email">Email: </label>
             <br />
@@ -87,18 +116,6 @@ const SignUp = props => {
               name="email"
               value={emailAddress.email}
               onChange={emailHandleChange}
-            />
-            <br />
-            <ErrorMessage name="email" component="div" />
-            <label htmlFor="email">Confirm Email: </label>
-            <br />
-            <Field
-              className="field-input"
-              id="confirmEmail"
-              type="email"
-              name="email"
-              
-              
             />
             <br />
             <ErrorMessage name="email" component="div" />
@@ -114,6 +131,7 @@ const SignUp = props => {
             />
             <br />
             <ErrorMessage name="password" component="div" />
+
             <label htmlFor="password">Confirm Password: </label>
             <br />
             <Field
@@ -127,10 +145,15 @@ const SignUp = props => {
             <br />
             <ErrorMessage name="password" component="div" />
 
-            <button type="submit" disabled={isSubmitting}>
-              Sign In
+            
+
+           
+             <button type="submit" disabled={isSubmitting} onClick={signUpButton}>
+              Sign UP!
+
             </button>
           </Form>
+          </StyledSignUp>
         )}
       </Formik>
     </div>
