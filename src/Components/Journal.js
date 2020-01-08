@@ -2,8 +2,10 @@ import React, { useState } from 'react';
 import Navigation from "./Navigation";
 import { connect } from "react-redux";
 import { postWorkout } from "../actions/actions";
-
+import { axiosWithAuth} from './utils/axiosWithAuth'
 const Journal = () => {
+
+
     const [exercise, setExercise] = useState({
         
         date: Date.now(),
@@ -12,10 +14,34 @@ const Journal = () => {
         reps: "",
         sets: "",
         weight: "",
-        id: Date.now()
+        id: Date.now(),
+        journal: ''
         
     })
 
+
+    const exercises = {
+        exercise: exercise.name,
+        weight: exercise.weight,
+        sets: exercise.sets,
+        date: exercise.date,
+        muscle: exercise.targetedArea,
+        journal: exercise.journal
+
+    }
+
+    // axiosWithAuth.post( )
+    //     .then( response =>
+    //     {
+          
+    //     } )
+    //     .catch( error =>
+    //     {
+            
+    //     } );
+
+
+        
     const handleChanges = event => {
         // @ts-ignore
         setExercise({
@@ -78,7 +104,16 @@ const Journal = () => {
                 />
                 <button>Add Exercise</button>
                    
-
+                <br/>
+                <textarea
+                id='journal'
+                name='journal'
+                placeholder='Write something'
+                value={exercise.journal}
+                onChange={handleChanges}
+                maxLength={128}
+                
+                />
 
 
             </form>

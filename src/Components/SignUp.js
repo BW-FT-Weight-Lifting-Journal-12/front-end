@@ -43,25 +43,33 @@ const SignUp = props => {
     axiosWithAuth()
       .post("/api/auth/register", credentials)
       .then(res => {
-        
+        setError(error)
       })
       .catch(err => {
-        alert(err)
-       
+        
+        setError(err)
       })
    
   };
 
 
- const signUpButton = ()=> {
-    if(emailAddress.email !== '' && userPassword.password ){
-      props.history.push('/login')
-    }
 
+
+ const signUpButton = ()=> {
+    
+  
+    if(emailAddress.email !== '' && userPassword.password !=='' ){
+
+      setTimeout(() => {
+         props.history.push('/login')
+      }, 1000);
+       
+      }
+    
   
  }
 
-
+  const [ error, setError ] = useState('')
   
 
   return (
