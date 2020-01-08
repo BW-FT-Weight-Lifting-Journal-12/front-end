@@ -22,16 +22,16 @@ const titleStyle = {
         return (
           <StyledMyExercises>
           <CardDeck className="wrapper">
-          <Card className="card-wrapper" key={workouts.id}>
-          <CardBody className="card-body">
-            <CardTitle>Name: {exercise.name}</CardTitle>
-            <CardSubtitle>Sets: {exercise.sets}</CardSubtitle>
-            <CardSubtitle>Reps: {exercise.reps}</CardSubtitle>
-            <CardSubtitle>Weight: {exercise.weight}</CardSubtitle><br/>
-            <Button className="exercise-btn">Edit</Button><br/>
-            <Button className="exercise-btn">Delete</Button>
-          </CardBody>
-          </Card>
+            <Card className="card-wrapper" key={workouts.id}>
+              <CardBody className="card-body">
+                <CardTitle>Name: {exercise.name}</CardTitle>
+                <CardSubtitle>Sets: {exercise.sets}</CardSubtitle>
+                <CardSubtitle>Reps: {exercise.reps}</CardSubtitle>
+                <CardSubtitle>Weight: {exercise.weight}</CardSubtitle><br/>
+                <Button className="exercise-btn">Edit</Button><br/>
+                <Button className="exercise-btn">Delete</Button>
+              </CardBody>
+            </Card>
           </CardDeck>
           </StyledMyExercises>
         );

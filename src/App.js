@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Private from './Components/PrivateRoute';
 
 import Login from "./Components/Login";
@@ -12,6 +12,8 @@ import Footer from "./Components/Footer";
 import Journal from "./Components/Journal";
 
 import "./App.css";
+
+// http://localhost:3000/protected
 
 function App() {
   return (
@@ -30,9 +32,11 @@ function App() {
       //   <MyExercises />
       // </Route>
       }
+      
       <Switch>
-        <Private path='/protected' component={MyExercises}/>
-        <Private path='/protected' component={Exercises}/>
+        <Private exact path='/protected' component={MyExercises}/>
+        <Private path='/protected/exercises' component={Exercises}/>
+        <Private path='/protected/list' component={ Journal}  />
         <Route path='/login' component={Login}/>
         <Route exact path='/signUp' component={SignUp}/>
         <Route component={Login}/>
