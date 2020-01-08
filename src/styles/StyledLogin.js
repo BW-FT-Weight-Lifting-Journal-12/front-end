@@ -2,6 +2,10 @@ import styled from "styled-components";
 
 export const StyledLogin = styled.div`
 
+p {
+  text-align: center;
+}
+
 h1 {
    text-align: center;
 }

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-// import Navigation from "./Navigation";
+import Navigation from "./Navigation";
+import { StyledSignUp, StyledSignUpTitle } from "../styles/StyledSignUp";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { axiosWithAuth } from "./utils/axiosWithAuth";
 
@@ -74,10 +75,12 @@ const SignUp = props => {
 
   return (
     <div>
-    
-      
+
+      <Navigation />
+      <StyledSignUpTitle>
       <h1>Sign Up</h1>
-     
+      </StyledSignUpTitle>
+
       <Formik
         initialValues={{ email: "", password: "" }}
         validate={values => {
@@ -97,12 +100,12 @@ const SignUp = props => {
         }}
         onSubmit={(values, { setSubmitting }) => {
           setTimeout(() => {
-            // alert(JSON.stringify(values, null, 2));
             setSubmitting(false);
           }, 400);
         }}
       >
         {({ isSubmitting }) => (
+          <StyledSignUp>
           <Form className="form-field" onSubmit={signUp}>
             <label htmlFor="email">Email: </label>
             <br />
@@ -128,11 +131,29 @@ const SignUp = props => {
             />
             <br />
             <ErrorMessage name="password" component="div" />
+
+            <label htmlFor="password">Confirm Password: </label>
+            <br />
+            <Field
+              className="field-input"
+              id="confirmPassword"
+              type="password"
+              name="password"
+             
+              
+            />
+            <br />
+            <ErrorMessage name="password" component="div" />
+
+            
+
            
              <button type="submit" disabled={isSubmitting} onClick={signUpButton}>
               Sign UP!
+
             </button>
           </Form>
+          </StyledSignUp>
         )}
       </Formik>
     </div>

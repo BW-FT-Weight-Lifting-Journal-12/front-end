@@ -15,6 +15,10 @@ export const StyledMyExercises = styled.div`
     color: #fff;
     padding: 2rem;
     text-align: center;
+    outline-style: inset;
+    outline-color: #353535;
+    outline-width: 4px;
+    border: 4px solid #fff;
   }
 
   .exercise-btn {
