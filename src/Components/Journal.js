@@ -33,7 +33,7 @@ const Journal = () => {
 
 
     const [exercise, setExercise] = useState({
-        
+
         date: Date.now(),
         name: "",
         targetedArea: "",
@@ -80,7 +80,6 @@ const Journal = () => {
             [event.target.name]: event.target.value,
         })
     }
-
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -144,7 +143,6 @@ const Journal = () => {
   );
 };
 
-   
 
 // const mapStateToProps = state => {
 //     return {
@@ -152,6 +150,7 @@ const Journal = () => {
 //     }
 // }
 
-export default Journal;
+export default Journal
 
 // ;connect(mapStateToProps, { postWorkout })
+

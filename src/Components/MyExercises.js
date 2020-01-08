@@ -1,14 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import Navigation from "./Navigation";
-import {
-  Card,
-  CardTitle,
-  CardSubtitle,
-  CardBody,
-  CardDeck,
-  Button
-} from "reactstrap";
-import { StyledMyExercises } from "../styles/StyledMyExercises";
+
+import { Card, CardTitle, CardSubtitle, CardBody, CardDeck, Button } from "reactstrap";
+import { StyledMyExercises } from '../styles/StyledMyExercises';
+import { connect } from "react-redux";
+import { deleteWorkout, editWorkout } from "../actions/actions";
 
 const MyExercises = () => {
   const titleStyle = {
@@ -78,4 +74,12 @@ const MyExercises = () => {
   );
 };
 
-export default MyExercises;
+const mapStateToProps = state => {
+  return {
+    isDeleting: state.isDeleting,
+    isEditing: state.isEditing,
+    exerciseList: state.exerciseList,
+  }
+}
+
+export default connect(mapStateToProps, { deleteWorkout, editWorkout })(MyExercises);
