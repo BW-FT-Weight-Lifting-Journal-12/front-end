@@ -1,34 +1,14 @@
 import React, { useState } from "react";
 import Navigation from "./Navigation";
-import { connect } from "react-redux";
-import { postWorkout } from "../actions/actions";
 
+import { axiosWithAuth} from './utils/axiosWithAuth'
 import {
   StyledJournalTitle,
   StyledJournalForm,
   StyledJournalFooter
 } from "../styles/StyledJournal";
 
-const Journal = () => {
-  const [exercise, setExercise] = useState({
-    date: Date.now(),
-    name: "",
-    targetedArea: "",
-    reps: "",
-    sets: "",
-    weight: "",
-    id: Date.now()
-  });
 
-  const handleChanges = event => {
-    // @ts-ignore
-    setExercise({
-      ...exercise,
-      [event.target.name]: event.target.value
-    });
-  };
-
-import { axiosWithAuth} from './utils/axiosWithAuth'
 const Journal = () => {
 
 
@@ -143,14 +123,4 @@ const Journal = () => {
   );
 };
 
-
-// const mapStateToProps = state => {
-//     return {
-
-//     }
-// }
-
 export default Journal
-
-// ;connect(mapStateToProps, { postWorkout })
-

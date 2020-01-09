@@ -1,12 +1,12 @@
 import styled from "styled-components";
 
-export const StyledJournalTitle = styled.h1`
+export const StyledJournalTitle = styled.div`
   color: #353535;
   font-size: 1.5rem;
   text-align: center;
 `;
 
-export const StyledJournalForm = styled.form`
+export const StyledJournalForm = styled.div`
   background: #353535;
   width: 70%;
   padding: 3rem;
