@@ -7,7 +7,6 @@ import { connect } from "react-redux";
 import { axiosWithAuth } from './utils/axiosWithAuth'
 
 
-
 import { axiosWithAuth} from './utils/axiosWithAuth'
 import {
     StyledJournalTitle,
