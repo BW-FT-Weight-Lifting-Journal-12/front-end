@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import Navigation from "./Navigation";
+import { connect } from "react-redux";
+import { postWorkout } from "../actions/actions";
 
 import { connect } from "react-redux";
 import { postWorkout } from "../actions/actions";
@@ -12,6 +14,7 @@ import {
     StyledJournalForm,
     StyledJournalFooter
 } from "../styles/StyledJournal";
+
 
 
 
@@ -138,8 +141,6 @@ const Journal = (props) => {
     );
 };
 
-
-
 const mapStateToProps = state => {
     return {
 
@@ -147,4 +148,5 @@ const mapStateToProps = state => {
 }
 
 export default connect(mapStateToProps, { postWorkout })(Journal);
+
 

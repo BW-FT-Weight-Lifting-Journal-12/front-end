@@ -42,6 +42,8 @@ function App() {
         <Route component={Login}/>
       </Switch>
 
+
+
       
       <Footer />
     </Router>
