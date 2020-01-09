@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const StyledSignUpTitle = styled.h1`
+export const StyledSignUpTitle = styled.div`
   color: #353535;
   font-size: 1.5rem;
   text-align: center;
