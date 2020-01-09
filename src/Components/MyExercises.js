@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Navigation from "./Navigation";
 
 import { Card, CardTitle, CardSubtitle, CardBody, CardDeck, Button } from "reactstrap";
@@ -6,7 +6,7 @@ import { StyledMyExercises } from '../styles/StyledMyExercises';
 import { connect } from "react-redux";
 import { deleteWorkout, editWorkout } from "../actions/actions";
 
-const MyExercises = () => {
+const MyExercises = (props) => {
   const titleStyle = {
     textAlign: "center"
   };
@@ -45,21 +45,22 @@ const MyExercises = () => {
     }
   ];
 
+
   return (
     <div>
       <Navigation />
       <h1 style={titleStyle}>My Exercises</h1>
-      {workouts.map(exercise => {
+      {workouts.map(exerciseList => {
         return (
-          <StyledMyExercises key={exercise.id}>
+          <StyledMyExercises key={exerciseList.id}>
             <CardDeck className="wrapper">
               <Card className="card-wrapper" key={workouts.id}>
                 <CardBody className="card-body">
-                  <CardTitle>Name: {exercise.name}</CardTitle>
-                  <CardTitle>Area: {exercise.area}</CardTitle>
-                  <CardSubtitle>Sets: {exercise.sets}</CardSubtitle>
-                  <CardSubtitle>Reps: {exercise.reps}</CardSubtitle>
-                  <CardSubtitle>Weight: {exercise.weight}</CardSubtitle>
+                  <CardTitle>Name: {exerciseList.name}</CardTitle>
+                  <CardTitle>Area: {exerciseList.area}</CardTitle>
+                  <CardSubtitle>Sets: {exerciseList.sets}</CardSubtitle>
+                  <CardSubtitle>Reps: {exerciseList.reps}</CardSubtitle>
+                  <CardSubtitle>Weight: {exerciseList.weight}</CardSubtitle>
                   <br />
                   <Button className="exercise-btn">Edit</Button>
                   <br />

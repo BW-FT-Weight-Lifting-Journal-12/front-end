@@ -1,15 +1,17 @@
 import axios from "axios";
 
+const token = localStorage.getItem("token");
+
 export const POST_WORKOUT_START = "POST_WORKOUT_START";
 export const POST_WORKOUT_SUCCESS = "POST_WORKOUT_SUCCESS";
 export const POST_WORKOUT_ERROR = "POST_WORKOUT_ERROR";
 
 export const postWorkout = workoutValues => dispatch => {
     dispatch({ type: POST_WORKOUT_START });
-    axios.post()
+    axios.post("https://weight-lifting-journal-12.herokuapp.com/api/journal", workoutValues)
     .then(response => {
-        console.log(response);
         dispatch({ type: POST_WORKOUT_SUCCESS, payload: response.data })
+        console.log("IT WORKED", response);
     })
     .catch(error => {
         console.log("Something went wrong!", error)

@@ -44,9 +44,7 @@ function App() {
       
       <Footer />
     </Router>
-
-
-        <Switch>
+        {/* <Switch>
           <Private exact path="/protected" component={MyExercises} />
 
           <Private path="/protected/list" component={Journal} />
@@ -56,9 +54,7 @@ function App() {
         </Switch>
 
         <Footer />
-      </Router>
-
-      
+      </Router> */}
     </div>
   );
 }
