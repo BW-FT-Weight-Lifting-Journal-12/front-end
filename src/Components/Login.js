@@ -48,19 +48,12 @@ const Login = props => {
       .post( '/api/auth/login', mergedObjects)
 
       .then(res => {
-        console.log(res)
         localStorage.setItem("token", res.data.payload);
         props.history.push( '/protected' );
       })
 
       .catch(err => console.log(err))
   }
-
-  
-
-  
-  
-
 
   return (
     <StyledLogin>

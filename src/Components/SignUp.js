@@ -44,7 +44,6 @@ const SignUp = props => {
     axiosWithAuth()
       .post("/api/auth/register", credentials)
       .then(res => {
-        console.log(res)
         setError(error)
       })
       .catch(err => {
