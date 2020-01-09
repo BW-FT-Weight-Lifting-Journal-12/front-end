@@ -28,7 +28,8 @@ function App() {
       <Route path="/welcome">
         <Welcome />
       </Route>
- {     
+
+ {    
       // <Route path="/exercises">
       //   <Exercises />
       // </Route>

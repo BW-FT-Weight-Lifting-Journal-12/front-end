@@ -3,6 +3,7 @@ import Navigation from "./Navigation";
 import { StyledSignUp, StyledSignUpTitle } from "../styles/StyledSignUp";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { axiosWithAuth } from "./utils/axiosWithAuth";
+import Spinner  from "./Spinner";
 
 const SignUp = props => {
   const [emailAddress, setEmail] = useState({
@@ -45,6 +46,8 @@ const SignUp = props => {
       .post("/api/auth/register", credentials)
       .then(res => {
         setError(error)
+        // Added for Spinner......................................................
+        // setLoading(loading)
       })
       .catch(err => {
         
@@ -70,7 +73,12 @@ const SignUp = props => {
   
  }
 
-  const [ error, setError ] = useState('')
+  const [ error, setError, loading, setLoading ] = useState('')
+ 
+  // Spinner added loading, setLoading added above and lines 81 and 82.......................................
+  
+  // if (error) return <div>Something went wrong...</div>;
+  if (error) return <Spinner/>;
   
 
   return (

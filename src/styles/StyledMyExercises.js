@@ -1,9 +1,9 @@
 import styled from "styled-components";
 
 export const StyledMyExercises = styled.div`
-  width: 20em;
+  width: 25em;
   display: inline-block;
-  margin: 3rem 3rem;
+  margin: 3rem 6rem;
 
   .card-wrapper {
     margin: 3rem 2rem;
@@ -11,9 +11,9 @@ export const StyledMyExercises = styled.div`
 
   .card-body {
     background: #353535;
-    width: 20em;
+    width: 25em;
     color: #fff;
-    padding: 2rem;
+    padding: 4rem 2rem;
     text-align: center;
     outline-style: inset;
     outline-color: #353535;
