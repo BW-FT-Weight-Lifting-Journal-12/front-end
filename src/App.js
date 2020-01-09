@@ -7,6 +7,7 @@ import Welcome from "./Components/Welcome";
 
 import Journal from "./Components/Journal";
 
+import UpdateExercise from "./Components/UpdateExercise";
 import MyExercises from "./Components/MyExercises";
 import SignUp from "./Components/SignUp";
 import Footer from "./Components/Footer";
@@ -37,6 +38,7 @@ function App() {
       <Switch>
         <Private exact path='/protected' component={MyExercises}/>
         <Private path='/protected/list' component={ Journal}  />
+        <Route path = "/update_exercise/:id" render = {props => (<UpdateExercise {...props} />)}/>
         <Route path='/login' component={Login}/>
         <Route exact path='/signUp' component={SignUp}/>
         <Route component={Login}/>

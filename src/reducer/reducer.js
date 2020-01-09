@@ -76,7 +76,7 @@ export const reducer = (state = newWorkoutState, action) => {
         case EDIT_WORKOUT_SUCCESS:
             return {
                 ...state,
-                // exerciseList: ,
+                exerciseList: action.payload,
                 isEditing: false,
             }
 
