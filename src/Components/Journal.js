@@ -4,8 +4,8 @@ import { connect } from "react-redux";
 import { postWorkout } from "../actions/actions";
 
 import { connect } from "react-redux";
-import { postWorkout } from "../actions/actions";
 import { axiosWithAuth } from './utils/axiosWithAuth'
+
 
 
 import { axiosWithAuth} from './utils/axiosWithAuth'
@@ -66,7 +66,10 @@ const Journal = (props) => {
 
     const handleSubmit = e => {
         e.preventDefault();
-        props.postWorkout(workout)
+        props.postWorkout(workout);
+        setTimeout(() => {
+        props.history.push( '/protected' );
+        }, 1000)
         setWorkout({ 
         exercise: "",
         weight: "",

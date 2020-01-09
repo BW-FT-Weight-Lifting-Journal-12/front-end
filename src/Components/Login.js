@@ -121,7 +121,6 @@ const Login = props => {
                 <br />
                 <br />
                 <ErrorMessage name="password" component="div" />
-
                 <button type="submit" disabled={isSubmitting}>
                   Sign In
                 </button>
