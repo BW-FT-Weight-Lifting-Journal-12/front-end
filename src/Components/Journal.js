@@ -3,7 +3,8 @@ import Navigation from "./Navigation";
 import { connect } from "react-redux";
 import { postWorkout } from "../actions/actions";
 
-import { axiosWithAuth} from './utils/axiosWithAuth'
+import { axiosWithAuth} from './utils/axiosWithAuth';
+
 import {
     StyledJournalTitle,
     StyledJournalForm,
@@ -140,9 +141,14 @@ const Journal = (props) => {
 const mapStateToProps = state => {
     return {
 
+
     }
 }
 
+
+
+
 export default connect(mapStateToProps, { postWorkout })(Journal);
+
 
 

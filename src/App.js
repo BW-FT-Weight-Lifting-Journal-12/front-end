@@ -20,6 +20,9 @@ function App() {
   return (
     <div className="App">
 
+     
+
+
     
     <Router>
       <Route path="/welcome">
@@ -49,18 +52,7 @@ function App() {
       
       <Footer />
     </Router>
-        {/* <Switch>
-          <Private exact path="/protected" component={MyExercises} />
-
-          <Private path="/protected/list" component={Journal} />
-          <Route path="/login" component={Login} />
-          <Route exact path="/signUp" component={SignUp} />
-          <Route component={Login} />
-        </Switch>
-
-        <Footer />
-      </Router> */}
-
+        
     </div>
   );
 }
