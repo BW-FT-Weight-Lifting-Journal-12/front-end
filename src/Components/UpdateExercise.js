@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Navigation from "./Navigation";
 import { connect } from "react-redux";
-import { postWorkout } from "../actions/actions";
+import axios from "axios";
+import { editWorkout } from "../actions/actions";
 
 import {
     StyledJournalTitle,
@@ -9,8 +10,7 @@ import {
     StyledJournalFooter
 } from "../styles/StyledJournal";
 
-
-const Journal = (props) => {
+const UpdateExercise = (props) => {
     const [workout, setWorkout] = useState({
         exercise: "",
         weight: "",
@@ -22,54 +22,50 @@ const Journal = (props) => {
         id: Date.now(),
     });
 
-    // const exercises = {
-    //     exercise: exercise.name,
-    //     weight: exercise.weight,
-    //     sets: exercise.sets,
-    //     date: exercise.date,
-    //     muscle: exercise.targetedArea,
-    //     journal: exercise.journal
-
-    // }
-
-    // axiosWithAuth().
-    //     post('/api/workouts', exercises)
-    //     .then(res => {
-    //         console.log(res)
-    //     })
-    //     .catch(err => {
-    //         console.log(err)
-    //     });
-
-    // console.log('/')
-
-    // axiosWithAuth().get('https://weight-lifting-journal-12.herokuapp.com/').then(res => console.log(res))
-
-    const handleChanges = event => {
-        // @ts-ignore
-        setWorkout({
-            ...workout,
-            date: Date.now(),
-            id: Date.now(),
-            [event.target.name]: event.target.value,
-        })
+    const testWorkout = {
+        exercise: workout.exercise,
+        weight: workout.weight,
+        sets: workout.sets,
+        reps: workout.reps,
+        date: Date.now(),
+        muscle: workout.muscle,
+        journal: workout.journal,
+        id: workout.id,
     }
 
-    const handleSubmit = e => {
-        e.preventDefault();
-        props.postWorkout(workout);
+    useEffect(() => {
+        axios.get(`https://weight-lifting-journal-12.herokuapp.com/api/journal/${props.match.params.id}`)
+            .then(response => {
+                console.log(response);
+                setWorkout(response.data)
+            })
+            .catch(error => {
+                console.log(error)
+            })
+    }, [props.match.params.id])
+
+    const handleChanges = event => {
+        setWorkout({
+            ...workout,
+            [event.target.name]: event.target.value,
+        })
+    };
+
+    const handleSubmit = event => {
+        event.preventDefault();
+        props.editWorkout(workout.id, testWorkout)
         setTimeout(() => {
-        props.history.push( '/protected' );
+            props.history.push('/protected');
         }, 1000)
-        setWorkout({ 
-        exercise: "",
-        weight: "",
-        sets: "",
-        reps: "",
-        date: "",
-        muscle: "",
-        journal: '',
-        id: "", 
+        setWorkout({
+            exercise: "",
+            weight: "",
+            sets: "",
+            reps: "",
+            date: "",
+            muscle: "",
+            journal: '',
+            id: "",
         });
     };
 
@@ -90,7 +86,7 @@ const Journal = (props) => {
                         onChange={handleChanges}
                     />
                     <input
-                        type="number"
+                        type="text"
                         name="weight"
                         placeholder="Weight"
                         value={workout.weight}
@@ -124,7 +120,7 @@ const Journal = (props) => {
                         value={workout.journal}
                         onChange={handleChanges}
                     />
-                    <button type="submit">Add Exercise</button>
+                    <button type="submit">Save Changes</button>
                 </form>
                 {/* Added footer for styling */}
             </StyledJournalForm>
@@ -132,9 +128,8 @@ const Journal = (props) => {
                 <footer></footer>
             </StyledJournalFooter>
         </div>
-    );
-};
-
+    )
+}
 
 const mapStateToProps = state => {
     return {
@@ -142,4 +137,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps, { postWorkout })(Journal);
+export default connect(mapStateToProps, { editWorkout })(UpdateExercise)

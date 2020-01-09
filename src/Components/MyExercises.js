@@ -77,9 +77,9 @@ useEffect(() => {
                   <CardSubtitle>Reps: {exerciseList.reps}</CardSubtitle>
                   <CardSubtitle>Journal Entry: {exerciseList.journal}</CardSubtitle>
                   <br />
-                  <Button className="exercise-btn">Edit</Button>
+                  <Button onClick = {() => props.history.push(`/update_exercise/${exerciseList.id}`)} className="exercise-btn">Edit</Button>
                   <br />
-                  <Button className="exercise-btn">Delete</Button>
+                  <Button onClick = {() => props.deleteWorkout(exerciseList.id)}className="exercise-btn">Delete</Button>
                 </CardBody>
               </Card>
             </CardDeck>
