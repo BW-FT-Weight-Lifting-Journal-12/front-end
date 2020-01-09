@@ -33,16 +33,17 @@ export const StyledMyExercises = styled.div`
   }
 
   @media only screen and (max-width: 550px) {
-    width: 100%;
+    width: 95%;
     display: flex;
     background: #353535;
-    margin: 3rem 0;
+    margin: 3rem auto;
 
     .card-wrapper {
       width: 100%;
     }
     .card-body {
       width: 100%;
+      margin: 0 auto;
     }
   }
 `;
