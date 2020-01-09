@@ -1,4 +1,4 @@
-import { POST_WORKOUT_START, POST_WORKOUT_SUCCESS, POST_WORKOUT_ERROR,FETCH_WORKOUT_START,FETCH_WORKOUT_SUCCESS, FETCH_WORKOUT_FAILURE, DELETE_WORKOUT_START, DELETE_WORKOUT_SUCCESS, DELETE_WORKOUT_ERROR, EDIT_WORKOUT_START, EDIT_WORKOUT_SUCCESS, EDIT_WORKOUT_ERROR} from "../actions/actions";
+import { POST_WORKOUT_START, POST_WORKOUT_SUCCESS, POST_WORKOUT_ERROR, FETCH_WORKOUT_START, FETCH_WORKOUT_SUCCESS, FETCH_WORKOUT_FAILURE, DELETE_WORKOUT_START, DELETE_WORKOUT_SUCCESS, DELETE_WORKOUT_ERROR, EDIT_WORKOUT_START, EDIT_WORKOUT_SUCCESS, EDIT_WORKOUT_ERROR } from "../actions/actions";
 
 const newWorkoutState = () => ({
     exerciseList: [],
@@ -10,7 +10,7 @@ const newWorkoutState = () => ({
 });
 
 export const reducer = (state = newWorkoutState, action) => {
-    switch(action.type) {
+    switch (action.type) {
         case POST_WORKOUT_START:
             return {
                 ...state,
@@ -20,7 +20,7 @@ export const reducer = (state = newWorkoutState, action) => {
         case POST_WORKOUT_SUCCESS:
             return {
                 ...state,
-                exerciseList: action.payload,
+                exerciseList: [...state.exerciseList, action.payload],
                 isPosting: false,
             }
 
@@ -76,7 +76,7 @@ export const reducer = (state = newWorkoutState, action) => {
         case EDIT_WORKOUT_SUCCESS:
             return {
                 ...state,
-                // exerciseList: ,
+                exerciseList: action.payload,
                 isEditing: false,
             }
 

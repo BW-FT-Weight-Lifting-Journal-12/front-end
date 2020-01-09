@@ -48,6 +48,7 @@ const Login = props => {
       .post( '/api/auth/login', mergedObjects)
 
       .then(res => {
+        console.log(res)
         localStorage.setItem("token", res.data.payload);
         props.history.push( '/protected' );
       })
@@ -120,7 +121,6 @@ const Login = props => {
                 <br />
                 <br />
                 <ErrorMessage name="password" component="div" />
-
                 <button type="submit" disabled={isSubmitting}>
                   Sign In
                 </button>
