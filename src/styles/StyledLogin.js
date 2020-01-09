@@ -1,14 +1,13 @@
 import styled from "styled-components";
 
 export const StyledLogin = styled.div`
+  p {
+    text-align: center;
+  }
 
-p {
-  text-align: center;
-}
-
-h1 {
-   text-align: center;
-}
+  h1 {
+    text-align: center;
+  }
   .login-page {
     display: flex;
     flex-direction: row;
@@ -16,14 +15,13 @@ h1 {
 
     .login-page h1 {
       margin: 0 auto;
-
     }
-    
+
     .login-img {
       width: 300px;
       height: 150px;
     }
-    
+
     .login-rt {
       display: flex;
       flex-direction: column;
@@ -53,10 +51,10 @@ h1 {
       background: yellow;
       color: #353535;
     }
-    
+
     .hero-img {
       width: 70%;
-      height: 90vh;
+      height: 92vh;
     }
   }
   @media only screen and (max-width: 550px) {
@@ -73,6 +71,5 @@ h1 {
         margin: 2rem auto;
       }
     }
-
   }
-  `;
+`;

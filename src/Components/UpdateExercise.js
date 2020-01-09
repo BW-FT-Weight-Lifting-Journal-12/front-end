@@ -34,7 +34,7 @@ const UpdateExercise = (props) => {
     }
 
     useEffect(() => {
-        axios.get(`https://weight-lifting-journal-12.herokuapp.com/api/journal/${props.match.params.id}`)
+        axios.get(`https://weight-lifting-journal12.herokuapp.com/api/journal/${props.match.params.id}`)
             .then(response => {
                 console.log(response);
                 setWorkout(response.data)

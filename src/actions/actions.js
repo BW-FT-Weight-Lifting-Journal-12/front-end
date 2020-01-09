@@ -8,7 +8,7 @@ export const POST_WORKOUT_ERROR = "POST_WORKOUT_ERROR";
 
 export const postWorkout = workoutValues => dispatch => {
     dispatch({ type: POST_WORKOUT_START });
-    axios.post("https://weight-lifting-journal-12.herokuapp.com/api/journal", workoutValues)
+    axios.post("https://weight-lifting-journal12.herokuapp.com/api/journal", workoutValues)
         .then(response => {
             dispatch({ type: POST_WORKOUT_SUCCESS, payload: response.data })
             console.log("IT WORKED", response);
@@ -33,7 +33,7 @@ export const DELETE_WORKOUT_ERROR = "DELETE_WORKOUT_ERROR";
 
 export const deleteWorkout = id => dispatch => {
     dispatch({ type: DELETE_WORKOUT_START });
-    axios.delete(`https://weight-lifting-journal-12.herokuapp.com/api/journal/${id}`)
+    axios.delete(`https://weight-lifting-journal12.herokuapp.com/api/journal/${id}`)
         .then(response => {
             console.log(response);
             dispatch({ type: DELETE_WORKOUT_SUCCESS, payload: id })
@@ -50,7 +50,7 @@ export const EDIT_WORKOUT_ERROR = "EDIT_WORKOUT_ERROR";
 
 export const editWorkout = (id, workoutValues) => dispatch => {
     dispatch({ type: EDIT_WORKOUT_START });
-    axios.put(`https://weight-lifting-journal-12.herokuapp.com/api/journal/${id}`, workoutValues)
+    axios.put(`https://weight-lifting-journal12.herokuapp.com/api/journal/${id}`, workoutValues)
         .then(response => {
             console.log(response)
             dispatch({ type: EDIT_WORKOUT_SUCCESS, payload: response.data })

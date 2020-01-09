@@ -51,7 +51,7 @@ const MyExercises = (props) => {
   // ];
 
 useEffect(() => {
-  axios.get("https://weight-lifting-journal-12.herokuapp.com/api/journal/")
+  axios.get("https://weight-lifting-journal12.herokuapp.com/api/journal/")
   .then(response => {
     console.log(response)
     setJournals(response.data)
