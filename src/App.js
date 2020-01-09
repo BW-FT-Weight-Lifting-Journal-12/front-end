@@ -41,8 +41,20 @@ function App() {
         <Route exact path='/signUp' component={SignUp}/>
         <Route component={Login}/>
       </Switch>
+      
+      <Footer />
+    </Router>
+        {/* <Switch>
+          <Private exact path="/protected" component={MyExercises} />
+
+          <Private path="/protected/list" component={Journal} />
+          <Route path="/login" component={Login} />
+          <Route exact path="/signUp" component={SignUp} />
+          <Route component={Login} />
+        </Switch>
+
         <Footer />
-      </Router>
+      </Router> */}
     </div>
   );
 }
