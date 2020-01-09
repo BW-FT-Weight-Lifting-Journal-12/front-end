@@ -71,11 +71,11 @@ useEffect(() => {
             <CardDeck className="wrapper">
               <Card className="card-wrapper" key={journals.id}>
                 <CardBody className="card-body">
-                  <CardTitle>Name: {exerciseList.exercise}</CardTitle>
-                  <CardTitle>Area: {exerciseList.weight}</CardTitle>
+                  <CardTitle>Exercise: {exerciseList.exercise}</CardTitle>
+                  <CardTitle>Weight: {exerciseList.weight}</CardTitle>
                   <CardSubtitle>Sets: {exerciseList.sets}</CardSubtitle>
                   <CardSubtitle>Reps: {exerciseList.reps}</CardSubtitle>
-                  <CardSubtitle>Weight: {exerciseList.journal}</CardSubtitle>
+                  <CardSubtitle>Journal Entry: {exerciseList.journal}</CardSubtitle>
                   <br />
                   <Button className="exercise-btn">Edit</Button>
                   <br />
