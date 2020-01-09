@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import Navigation from "./Navigation";
 import { connect } from "react-redux";
 import { postWorkout } from "../actions/actions";
-import { Link } from "react-router-dom";
 
 import {
     StyledJournalTitle,
