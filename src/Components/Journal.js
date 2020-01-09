@@ -3,6 +3,7 @@ import Navigation from "./Navigation";
 import { connect } from "react-redux";
 import { postWorkout } from "../actions/actions";
 
+import { axiosWithAuth } from "./utils/axiosWithAuth";
 import {
   StyledJournalTitle,
   StyledJournalForm,
@@ -17,8 +18,33 @@ const Journal = () => {
     reps: "",
     sets: "",
     weight: "",
-    id: Date.now()
+    id: Date.now(),
+    journal: ""
   });
+
+  const exercises = {
+    exercise: exercise.name,
+    weight: exercise.weight,
+    sets: exercise.sets,
+    date: exercise.date,
+    muscle: exercise.targetedArea,
+    journal: exercise.journal
+  };
+
+  // axiosWithAuth().
+  // post('/api/workouts', exercises)
+  //     .then( res =>
+  //     {
+  //       console.log(res)
+  //     } )
+  //     .catch( err =>
+  //     {
+  //         console.log(err)
+  //     } );
+
+  // console.log('/')
+
+  // axiosWithAuth().get('https://weight-lifting-journal-12.herokuapp.com/').then(res => console.log(res))
 
   const handleChanges = event => {
     // @ts-ignore
@@ -26,60 +52,15 @@ const Journal = () => {
       ...exercise,
       [event.target.name]: event.target.value
     });
+    axiosWithAuth()
+      .post("/api/workouts", exercises)
+      .then(res => {
+        console.log(res);
+      })
+      .catch(err => {
+        console.log(err);
+      });
   };
-
-import { axiosWithAuth} from './utils/axiosWithAuth'
-const Journal = () => {
-
-
-    const [exercise, setExercise] = useState({
-
-        date: Date.now(),
-        name: "",
-        targetedArea: "",
-        reps: "",
-        sets: "",
-        weight: "",
-        id: Date.now(),
-        journal: ''
-        
-    })
-
-
-    const exercises = {
-        exercise: exercise.name,
-        weight: exercise.weight,
-        sets: exercise.sets,
-        date: exercise.date,
-        muscle: exercise.targetedArea,
-        journal: exercise.journal
-
-    }
-
-    
-
-    axiosWithAuth().
-    post('/api/workouts', exercises)
-        .then( res =>
-        {
-          console.log(res)
-        } )
-        .catch( err =>
-        {
-            console.log(err)
-        } );
-
-    console.log('/')
-
-    axiosWithAuth().get('https://weight-lifting-journal-12.herokuapp.com/').then(res => console.log(res))
-        
-    const handleChanges = event => {
-        // @ts-ignore
-        setExercise({
-            ...exercise,
-            [event.target.name]: event.target.value,
-        })
-    }
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -133,8 +114,7 @@ const Journal = () => {
           <button>Add Exercise</button>
         </form>
 
-
- {/* Added footer for styling */}
+        {/* Added footer for styling */}
       </StyledJournalForm>
       <StyledJournalFooter>
         <footer></footer>
@@ -143,6 +123,7 @@ const Journal = () => {
   );
 };
 
+export default Journal;
 
 // const mapStateToProps = state => {
 //     return {
@@ -150,7 +131,4 @@ const Journal = () => {
 //     }
 // }
 
-export default Journal
-
 // ;connect(mapStateToProps, { postWorkout })
-

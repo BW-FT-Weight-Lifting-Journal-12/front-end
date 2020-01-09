@@ -56,7 +56,7 @@ h1 {
     
     .hero-img {
       width: 70%;
-      height: 85vh;
+      height: 90vh;
     }
   }
   @media only screen and (max-width: 550px) {
