@@ -3,6 +3,11 @@ import Navigation from "./Navigation";
 import { connect } from "react-redux";
 import { postWorkout } from "../actions/actions";
 
+import { connect } from "react-redux";
+import { postWorkout } from "../actions/actions";
+import { axiosWithAuth } from './utils/axiosWithAuth'
+
+
 import { axiosWithAuth} from './utils/axiosWithAuth'
 import {
     StyledJournalTitle,
@@ -11,9 +16,12 @@ import {
 } from "../styles/StyledJournal";
 
 
+
+
 const Journal = (props) => {
     const [workout, setWorkout] = useState({
         exercise: "",
+
         weight: "",
         sets: "",
         reps: "",
@@ -133,7 +141,6 @@ const Journal = (props) => {
     );
 };
 
-
 const mapStateToProps = state => {
     return {
 
@@ -141,3 +148,5 @@ const mapStateToProps = state => {
 }
 
 export default connect(mapStateToProps, { postWorkout })(Journal);
+
+
