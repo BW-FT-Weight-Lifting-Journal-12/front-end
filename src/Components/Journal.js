@@ -3,18 +3,12 @@ import Navigation from "./Navigation";
 import { connect } from "react-redux";
 import { postWorkout } from "../actions/actions";
 
-import { connect } from "react-redux";
-import { axiosWithAuth } from './utils/axiosWithAuth'
-
-
 import { axiosWithAuth} from './utils/axiosWithAuth'
 import {
     StyledJournalTitle,
     StyledJournalForm,
     StyledJournalFooter
 } from "../styles/StyledJournal";
-
-
 
 
 const Journal = (props) => {
